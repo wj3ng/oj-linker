@@ -6,8 +6,6 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "discord.js": "^11.2.1",
     "request": "2.81.0"
