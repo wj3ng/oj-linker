@@ -10,9 +10,12 @@ bot.on("ready", function(){
 
 bot.on("message",function(message){
     if(message.author.equals(bot.user)) return;
-    if(!message.content.startsWith(PREFIX)) return;
-
+    
     var args = message.content.substring(PREFIX.length).split(" ");
+    if(args[0]==":mb6::mb9:") message.channel.send(":point_up_2::point_up_2:")
+    if(args[0]==":mb6:" && args[1]==":mb9:" && !args[2]) message.channel.send(":point_up_2: :point_up_2:")
+
+    if(!message.content.startsWith(PREFIX)) return;
 
     switch(args[0].toLowerCase()){
         case "help":
