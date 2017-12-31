@@ -23,9 +23,9 @@ bot.on("message",function(message){
         if(message.content.indexOf("?") > -1)
             srch = message.content.substring(0,message.content.indexOf("?"));
         if(message.content.substr(0,3) == "an ")
-            srch = message.content.substring(message.content.indexOf(" an ")+4);
+            srch = message.content.substring(3);
         else if(message.content.substr(0,2) == "a ")
-            srch = message.content.substring(message.content.indexOf(" a ")+3);
+            srch = message.content.substring(2);
         srch.replace(/ /g,'%20');
         message.channel.send("Why don't you look it up yourself, you useless piece of garbage?\n" + "https://www.google.com/search?q=" + srch);
     }
