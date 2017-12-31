@@ -15,12 +15,16 @@ bot.on("message",function(message){
             srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("?"));
         if(message.content.indexOf("啊") > -1)
             srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("啊"));
-        srch.replace(/ /g,'%20')
+        else if(message.content.indexOf("呢") > -1)
+            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("呢"));
+        srch.replace(" ","%20");
         message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
     if(message.content.includes("what is ")){
-        var srch = message.content.substring(message.content.indexOf("what is ")+3);
-        srch.replace(/ /g,'%20')
+        var srch = message.content.substring(message.content.indexOf("what is ")+8);
+        if(message.content.indexOf("?") > message.content.indexOf("what is ")+8)
+            srch = message.content.substring(message.content.indexOf("what is ")+8,message.content.indexOf("?"));
+        srch.replace(" ","%20");
         message.channel.send("Why don't you look it up yourself, you useless piece of trash?\n" + "https://www.google.com/search?q=" + srch);
     }
     else if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
