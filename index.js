@@ -9,7 +9,7 @@ bot.on("ready", function(){
 });
 
 bot.on("message",function(message){
-    if(message.content.includes("(╯°□°）╯︵ ┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
+    if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
     else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")) message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
     
 
