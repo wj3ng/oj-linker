@@ -9,8 +9,15 @@ bot.on("ready", function(){
 });
 
 bot.on("message",function(message){
-    if(message.content.includes("什麼是")){
+    if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
         var srch = message.content.substring(message.content.indexOf("什麼是")+3);
+        if(message.content.indexOf("?") > message.content.indexOf("什麼是")+3)
+            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("?"));
+        srch.replace(/ /g,'%20')
+        message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
+    }
+    if(message.content.includes("what is ")){
+        var srch = message.content.substring(message.content.indexOf("what is ")+3);
         srch.replace(/ /g,'%20')
         message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
