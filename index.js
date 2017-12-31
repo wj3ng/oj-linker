@@ -11,23 +11,17 @@ bot.on("ready", function(){
 bot.on("message",function(message){
     if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
         var srch = message.content.substring(message.content.indexOf("什麼是")+3);
-        if(message.content.indexOf("?") > -1)
-            srch = message.content.substring(0,message.content.indexOf("?"));
+        if(message.content.indexOf("?") > message.content.indexOf("什麼是")+3)
+            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("?"));
         if(message.content.indexOf("啊") > -1)
-            srch = message.content.substring(0,message.content.indexOf("啊"));
-       // srch.replace(/ /g,'%20')
+            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("啊"));
+        srch.replace(/ /g,'%20')
         message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
-    if(message.content.includes("what is ") && message.content.indexOf("what is ")+8 < message.content.length){
-        var srch = message.content.substring(message.content.indexOf("what is ")+7);
-         if(message.content.indexOf("?") > -1)
-            srch = message.content.substring(0,message.content.indexOf("?"));
-        if(message.content.substr(0,5).includes(" an "))
-            srch = message.content.substring(message.content.indexOf(" an ")+4);
-        else if(message.content.substr(0,5).includes(" a "))
-            srch = message.content.substring(message.content.indexOf(" a ")+3);
-      //  srch.replace(/ /g,'%20')
-        message.channel.send("Why don't you look it up yourself, you useless piece of garbage?\n" + "https://www.google.com/search?q=" + srch);
+    if(message.content.includes("what is ")){
+        var srch = message.content.substring(message.content.indexOf("what is ")+3);
+        srch.replace(/ /g,'%20')
+        message.channel.send("Why don't you look it up yourself, you useless piece of trash?\n" + "https://www.google.com/search?q=" + srch);
     }
     else if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
     else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")) message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
