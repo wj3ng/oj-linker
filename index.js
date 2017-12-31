@@ -9,7 +9,7 @@ bot.on("ready", function(){
 });
 
 bot.on("message",function(message){
-    if(message.includes("(╯°□°）╯︵ ┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
+    if(message.content.includes("(╯°□°）╯︵ ┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
 
     if(message.author.equals(bot.user)) return;
     if(!message.content.startsWith(PREFIX)) return;
