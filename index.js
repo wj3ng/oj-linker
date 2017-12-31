@@ -11,6 +11,7 @@ bot.on("ready", function(){
 bot.on("message",function(message){
     if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
         var srch = message.content.substring(message.content.indexOf("什麼是")+3);
+        while(srch.charAt(0)==' ') srch = srch.substring(1);
         if(srch.indexOf("?") > -1)
             srch = srch.substring(0,srch.indexOf("?"));
         if(srch.indexOf("啊") > -1)
@@ -20,6 +21,7 @@ bot.on("message",function(message){
     }
     if(message.content.includes("what is ") && message.content.indexOf("what is ")+8 < message.content.length){
         var srch = message.content.substring(message.content.indexOf("what is ")+8);
+        while(srch.charAt(0)==' ') srch = srch.substring(1);
         if(srch.indexOf("?") > -1)
             srch = srch.substring(0,srch.indexOf("?"));
         if(srch.substr(0,3) == "an ")
@@ -29,25 +31,6 @@ bot.on("message",function(message){
         srch = srch.split(' ').join("%20");
         message.channel.send("Why don't you look it up yourself, you useless piece of garbage?\n" + "https://www.google.com/search?q=" + srch);
     }
-    /*if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
-        var srch = message.content.substring(message.content.indexOf("什麼是")+3);
-        if(message.content.indexOf("?") > message.content.indexOf("什麼是")+3)
-            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("?"));
-        if(message.content.indexOf("啊") > -1)
-            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("啊"));
-        else if(message.content.indexOf("呢") > -1)
-            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("呢"));
-        srch.replace(" ","%20");
-        message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
-    }
-    if(message.content.includes("what is ")){
-        var srch = message.content.substring(message.content.indexOf("what is ")+8);
-        if(message.content.indexOf("?") > message.content.indexOf("what is ")+8)
-            srch = message.content.substring(message.content.indexOf("what is ")+8,message.content.indexOf("?"));
-        srch.replace(" ","%20");
-        message.channel.send("Why don't you look it up yourself, you useless piece of trash?\n" + "https://www.google.com/search?q=" + srch);
-    }
-    */
     if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
     else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")) message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
     
