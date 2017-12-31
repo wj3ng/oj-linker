@@ -13,6 +13,8 @@ bot.on("message",function(message){
         var srch = message.content.substring(message.content.indexOf("什麼是")+3);
         if(message.content.indexOf("?") > message.content.indexOf("什麼是")+3)
             srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("?"));
+        if(message.content.indexOf("啊") > message.content.indexOf("什麼是")+3)
+            srch = message.content.substring(message.content.indexOf("什麼是")+3,message.content.indexOf("啊"));
         srch.replace(/ /g,'%20')
         message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
