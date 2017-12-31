@@ -15,7 +15,7 @@ bot.on("message",function(message){
             srch = srch.substring(0,srch.indexOf("?"));
         if(srch.indexOf("啊") > -1)
             srch = srch.substring(0,srch.indexOf("啊"));
-        srch.replace(/ /g,'+');
+        srch = srch.split(' ').join("%20");
         message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
     if(message.content.includes("what is ") && message.content.indexOf("what is ")+8 < message.content.length){
@@ -26,7 +26,7 @@ bot.on("message",function(message){
             srch = srch.substring(3);
         else if(srch.substr(0,2) == "a ")
             srch = srch.substring(2);
-        srch.replace(/ /g,'+');
+        srch = srch.split(' ').join("%20");
         message.channel.send("Why don't you look it up yourself, you useless piece of garbage?\n" + "https://www.google.com/search?q=" + srch);
     }
     /*if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
