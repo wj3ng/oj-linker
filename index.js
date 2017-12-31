@@ -12,7 +12,7 @@ bot.on("message",function(message){
     if(message.content.includes("什麼是")){
         var srch = message.content.substring(message.content.indexOf("什麼是")+3);
         srch.replace(/ /g,'%20')
-        message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com.tw/search?q=" + srch);
+        message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
     else if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
     else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")) message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
