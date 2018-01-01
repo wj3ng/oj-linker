@@ -6,9 +6,8 @@ var bot = new Discord.Client();
 
 bot.on("ready", function(){
     console.log("Ready");
+    bot.user.setPresence({ game: { name: '指令: ~help', type: 0 } });
 });
-
-client.user.setPresence({ game: { name: '指令: ~help', type: 0 } });
 
 bot.on("message",function(message){
     if(message.author.bot) return;
