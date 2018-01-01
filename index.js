@@ -28,6 +28,7 @@ bot.on("message",function(message){
         srch = srch.split(']').join("%5D");
         srch = srch.split('#').join("%23");
         srch = srch.split('&').join("%26");
+        srch = srch.split('"').join("%22");
         message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
     if(message.content.includes("what is ") && message.content.indexOf("what is ")+8 < message.content.length){
@@ -48,6 +49,7 @@ bot.on("message",function(message){
         srch = srch.split(']').join("%5D");
         srch = srch.split('#').join("%23");
         srch = srch.split('&').join("%26");
+        srch = srch.split('"').join("%22");
         message.channel.send("Why don't you look it up yourself, you useless piece of garbage?\n" + "https://www.google.com/search?q=" + srch);
     }
     if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")) message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
