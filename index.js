@@ -8,7 +8,7 @@ bot.on("ready", function(){
     console.log("Ready");
 });
 
-//bot.user.setGame("~help","https://zerojudge.tw/UserStatistic?id=72044");
+client.user.setPresence({ game: { name: '指令: ~help', type: 0 } });
 
 bot.on("message",function(message){
     if(message.author.bot) return;
