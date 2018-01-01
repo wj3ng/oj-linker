@@ -24,6 +24,9 @@ bot.on("message",function(message){
         srch = srch.split(' ').join("%20");
         srch = srch.split('　').join("%20");
         srch = srch.split('+').join("%2B");
+        srch = srch.split('[').join("%5B");
+        srch = srch.split(']').join("%5D");
+        srch = srch.split('#').join("%23");
         message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + srch);
     }
     if(message.content.includes("what is ") && message.content.indexOf("what is ")+8 < message.content.length){
