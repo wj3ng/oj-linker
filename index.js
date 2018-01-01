@@ -9,7 +9,7 @@ bot.on("ready", function(){
 });
 
 bot.on("message",function(message){
-    if(message.author.equals(bot.user)) return;
+    if(message.author.bot) return;
     
     if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
         var srch = message.content.substring(message.content.indexOf("什麼是")+3);
