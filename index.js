@@ -62,7 +62,7 @@ bot.on("message",function(message){
     switch(args[0].toLowerCase()){
 
         case "help":
-            message.channel.send("OJ Linker 的指令都是 `~` 開頭的.\n`~zj ProblemID` : ZeroJudge 的題目連結 (`ProblemID`用題號取代)\n`~tioj ProblemID` : TIOJ 的題目連結 (`ProblemID`用題號取代)\n`~neoj ProblemID` : NEOJ 的題目連結 (`ProblemID`用題號取代)\n`~誰是世界上最醜的人` : 宣布世界上最醜的人\n\n我是:cancer:餌神:cancer:的傑作!\n我的原始碼: https://github.com/wj3ng/oj-linker/blob/master/index.js");
+            message.channel.send(":cancer: MasterBot69 :cancer: 的指令都是 `~` 開頭的.\n`~zj ProblemID` : ZeroJudge 的題目連結 (`ProblemID`用題號取代)\n`~tioj ProblemID` : TIOJ 的題目連結 (`ProblemID`用題號取代)\n`~neoj ProblemID` : NEOJ 的題目連結 (`ProblemID`用題號取代)\n`~誰是世界上最醜的人` : 宣布世界上最醜的人\n\n我是:cancer:餌神:cancer:的傑作!\n我的原始碼: https://github.com/wj3ng/oj-linker/blob/master/index.js");
             break;
             
         case "zj":
