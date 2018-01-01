@@ -8,6 +8,8 @@ bot.on("ready", function(){
     console.log("Ready");
 });
 
+bot.setGame("~help","https://zerojudge.tw/UserStatistic?id=72044");
+
 bot.on("message",function(message){
     if(message.author.bot) return;
     
