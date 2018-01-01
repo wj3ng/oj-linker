@@ -9,6 +9,8 @@ bot.on("ready", function(){
 });
 
 bot.on("message",function(message){
+    if(message.author.equals(bot.user)) return;
+    
     if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
         var srch = message.content.substring(message.content.indexOf("什麼是")+3);
         while(srch.charAt(0)==' ') srch = srch.substring(1);
@@ -35,7 +37,6 @@ bot.on("message",function(message){
     else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")) message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
     
 
-    if(message.author.equals(bot.user)) return;
     if(!message.content.startsWith(PREFIX)) return;
     var args = message.content.substring(PREFIX.length).split(" ");
 
