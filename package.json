@@ -4,7 +4,7 @@
   "description": "Gives the link of an online judge problem",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node second.js"
   },
   "dependencies": {
     "discord.js": "11.2.1",
