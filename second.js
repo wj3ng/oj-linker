@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const Linker = require('./ojlinker')
+const Linker = require('./ojlinker');
 
 var client = new Discord.client();
 
