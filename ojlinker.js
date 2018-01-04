@@ -28,19 +28,22 @@ var neojValID = function(id){
 
 module.exports = {
 	zj: function(id){
+		console.log("zj for" + id);
 		if(!id) return '請加上題號 (正確範例: "~zj a001")';
 		if(!zjValID(id)) return '題號格式不正確 (正確範例: "~zj a001")';
-		return "ZeroJudge ${id}: http://zerojudge.tw/ShowProblem?problemid=${id}";
+		return "ZeroJudge " + id + ": http://zerojudge.tw/ShowProblem?problemid=" + id;
 	},
 	tioj: function(id){
+		console.log("tioj for" + id);
 		if(!id) return '請加上題號 (正確範例: "~tioj 1001")';
 		if(!tiojValID(id)) return '題號格式不正確 (正確範例: "~tioj 1001")';
-		return "TIOJ ${id}: http://tioj.ck.tp.edu.tw/problems/${id}";
+		return "TIOJ " + id + ": http://tioj.ck.tp.edu.tw/problems/" + id;
 	},
 	neoj: function(id){
+		console.log("neoj for" + id);
 		if(!id) return '請加上題號 (正確範例: "~neoj 1")';
 		if(!neojValID(id)) return '題號格式不正確 (正確範例: "~neoj 1")';
-		return "NEOJ ${id}: https://neoj.sprout.tw/problem/${id}";
+		return "NEOJ " + id + ": https://neoj.sprout.tw/problem/" + id;
 	}
 }
 

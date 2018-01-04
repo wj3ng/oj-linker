@@ -34,14 +34,18 @@ client.on("message", function(message){
 				"我是:cancer:餌神:cancer:的傑作!\n" + 
 				"我的原始碼: https://github.com/wj3ng/oj-linker"
 			);
+			break;
 		case "zj":
-			message.channel.send(Linker.zj(args[1]));
+			console.log("entered zj");
+			message.channel.send(Linker.zj(args[1].toLowerCase));
 			break;
 		case "tioj":
-			message.channel.send(Linker.tioj(args[1]));
+			console.log("entered tioj");
+			message.channel.send(Linker.tioj(args[1].toLowerCase));
 			break;
 		case "neoj":
-			message.channel.send(Linker.neoj(args[1]));
+			console.log("entered neoj");
+			message.channel.send(Linker.neoj(args[1].toLowerCase));
 			break;
 	}
 
