@@ -38,15 +38,15 @@ client.on("message", function(message){
 			break;
 		case "zj":
 			console.log("entered zj");
-			message.channel.send(Linker.zj(args[1].toLowerCase));
+			message.channel.send(Linker.zj(args[1].toLowerCase()));
 			break;
 		case "tioj":
 			console.log("entered tioj");
-			message.channel.send(Linker.tioj(args[1].toLowerCase));
+			message.channel.send(Linker.tioj(args[1].toLowerCase()));
 			break;
 		case "neoj":
 			console.log("entered neoj");
-			message.channel.send(Linker.neoj(args[1].toLowerCase));
+			message.channel.send(Linker.neoj(args[1].toLowerCase()));
 			break;
 	}
 
