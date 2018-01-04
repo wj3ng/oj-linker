@@ -27,7 +27,7 @@ module.exports = {
         if(str.substr(0,3) == "an ")
             str = str.substring(3);
         else if(str.substr(0,2) == "a ")
-            str = srch.substring(2);
+            str = str.substring(2);
 		return srchQry(str);
 	}
 }
