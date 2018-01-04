@@ -37,8 +37,9 @@ client.on("message", function(message){
 			);
 			break;
 		case "zj":
-			console.log("entered zj");
+			console.log("entered zj" + args[1]);
 			message.channel.send(Linker.zj(args[1].toLowerCase()));
+			console.log("exit zj" + args[1]);
 			break;
 		case "tioj":
 			console.log("entered tioj");
