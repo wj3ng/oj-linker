@@ -19,8 +19,7 @@ module.exports = {
             str = str.substring(0,str.indexOf("?"));
         if(str.indexOf("啊") > -1)
 			str = str.substring(0,str.indexOf("啊"));
-		var ret = srchQry(str);
-		if(ret) return ret;
+		return srchQry(str);
 	},
 	whatEN = function(str){
         if(srch.indexOf("?") > -1)
@@ -29,7 +28,6 @@ module.exports = {
             str = str.substring(3);
         else if(str.substr(0,2) == "a ")
             str = srch.substring(2);
-		var ret = srchQry(str);
-		if(ret) return ret;
+		return srchQry(str);
 	}
 }
