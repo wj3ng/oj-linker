@@ -21,7 +21,7 @@ client.on("message", function(message){
 	if(message.author.bot) return;
 
 	if(message.isMentioned(client.user)){
-		if(message.content.includes('去死')) message.channel.send("我哪些時候得罪你了...:cry:");
+		if(message.content.includes('去死')) message.channel.send("我哪時候得罪你了...:cry:");
 		else message.channel.send('請用 "' + PREFIX + '" 開始指令.');
 		return;
 	}

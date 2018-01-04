@@ -40,4 +40,3 @@ module.exports = {
 		return "NEOJ " + id + ": https://neoj.sprout.tw/problem/" + id;
 	}
 }
-

@@ -22,7 +22,7 @@ module.exports = {
 		return srchQry(str);
 	},
 	whatEN = function(str){
-        if(srch.indexOf("?") > -1)
+        if(str.indexOf("?") > -1)
             str = str.substring(0,str.indexOf("?"));
         if(str.substr(0,3) == "an ")
             str = str.substring(3);
