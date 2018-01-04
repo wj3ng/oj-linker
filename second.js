@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const Linker = require('./ojlinker');
 
-var client = new Discord.client();
+var client = new Discord.Client();
 
 var PREFIX = "~";
 
