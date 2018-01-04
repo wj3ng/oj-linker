@@ -24,7 +24,7 @@ client.on("ready", function(){
 });
 
 client.on("guildMemberAdd", function(member){
-	if(member.bot) generalChannel.send("歡迎工具人 " + member + " 加入伺服器!");
+	if(member.user.bot) generalChannel.send("歡迎工具人 " + member + " 加入伺服器!");
 	else generalChannel.send("歡迎 " + member + " 加入 PCSHIC 的 Discord 伺服器!\n請在這裡註明你是誰(例:我是資訊社的高一/我是xxx), 並到 " + helpChannel + " 閱讀規則.");
 });
 
