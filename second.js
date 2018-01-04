@@ -19,7 +19,7 @@ client.on("ready", function(){
 
 client.on("guildMemberAdd", function(member){
 	const channel = member.guild.channels.find('name', 'general');
-	member.send("歡迎" + member + "加入 PCSHIC 的 Discord 伺服器!\n請打開 #help 閱讀規則, 並且說你是誰 (例:我是資訊社的高一/我是xxx)");
+	member.sendMessage("歡迎加入 PCSHIC 的 Discord 伺服器!\n請打開 #help 閱讀規則, 並且註明你是誰 (例:我是資訊社的高一/我是xxx)");
 });
 
 client.on("message", function(message){
