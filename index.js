@@ -66,10 +66,10 @@ bot.on("message",function(message){
             break;
             
         case "zj":
+            var ltr = args[1].charAt(0);
             if(!args[1]) message.channel.send('請加上題號 (正確範例: "~zj a001")');
             else if(args[1].length != 4) message.channel.send('題號格式不正確 (正確範例: "~zj a001")');
-            var ltr = args[1].charAt(0);
-            if(ltr!="a" && ltr!="b" && ltr!="c" && ltr!="d") message.channel.send('題號格式不正確 (正確範例: "~zj a001")');
+            else if(ltr!="a" && ltr!="b" && ltr!="c" && ltr!="d") message.channel.send('題號格式不正確 (正確範例: "~zj a001")');
             else message.channel.send("Zerojudge " + args[1] + ": https://zerojudge.tw/ShowProblem?problemid=" + args[1].toLowerCase());
             break;
 
