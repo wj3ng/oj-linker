@@ -11,7 +11,6 @@ var srchQry = function(srch){
     srch = srch.split('"').join("%22");
 	if(srch.charAt(0) == ' ') srch = srch.substring(1);
 	if(srch.length > 0) return srch;
-	return undefined;
 }
 
 module.exports = {
@@ -20,7 +19,8 @@ module.exports = {
             str = str.substring(0,str.indexOf("?"));
         if(str.indexOf("啊") > -1)
 			str = str.substring(0,str.indexOf("啊"));
-		return srchQry(str);
+		var ret = srchQry(str);
+		if(ret) return ret;
 	},
 	whatEN = function(str){
         if(srch.indexOf("?") > -1)
@@ -29,6 +29,7 @@ module.exports = {
             str = str.substring(3);
         else if(str.substr(0,2) == "a ")
             str = srch.substring(2);
-		return srchQry(str);
+		var ret = srchQry(str);
+		if(ret) return ret;
 	}
 }
