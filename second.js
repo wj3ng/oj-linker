@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const Linker = require('./ojlinker');
-const Event = require('./botevents')
+const Event = require('./botevents');
 
 var client = new Discord.Client();
 
