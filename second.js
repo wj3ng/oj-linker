@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const Linker = require('./ojlinker');
+const Event = require('./botevents')
 
 var client = new Discord.Client();
 
@@ -18,6 +19,12 @@ client.on("ready", function(){
 
 client.on("message", function(message){
 	if(message.author.bot) return;
+
+	if(message.isMentioned(client.user)){
+		if(message.content.includes('去死')) message.channel.send("我哪些時候得罪你了... :(");
+		else message.channel.send('請用 "' + PREFIX + '" 開始指令.');
+		return;
+	}
 
 	//....
 
