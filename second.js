@@ -21,12 +21,33 @@ client.on("message", function(message){
 	if(message.author.bot) return;
 
 	if(message.isMentioned(client.user)){
-		if(message.content.includes('去死')) message.channel.send("我哪些時候得罪你了... :(");
+		if(message.content.includes('去死')) message.channel.send("我哪些時候得罪你了...:cry:");
 		else message.channel.send('請用 "' + PREFIX + '" 開始指令.');
 		return;
 	}
 
-	//....
+	if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
+		var ret = Event.whatZH(message.content.substring(message.content.indexOf("什麼是")+3))
+		if(ret) message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + ret);
+		return;
+    }
+    if(message.content.includes("what is ") && message.content.indexOf("what is ")+8 < message.content.length){
+		var ret = Event.whatEN(message.content.substring(message.content.indexOf("what is ")+8));
+		if(ret)
+			message.channel.send("Why don't you look it up yourself, you useless piece of garbage?\n" + 
+			"https://www.google.com/search?q=" + ret);
+		return;
+    }
+	if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")){
+		message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
+		return
+	}else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")){
+		message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
+		return;
+	}
+    
+
+//=================== 
 
 	if(!message.content.startsWith(PREFIX)) return;
 	var args = message.content.substring(PREFIX.length).split(" ");
