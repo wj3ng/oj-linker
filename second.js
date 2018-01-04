@@ -5,6 +5,12 @@ const Event = require('./botevents');
 var client = new Discord.Client();
 
 var PREFIX = "~";
+const helpChannel = member.guild.channels.find('name', 'help');
+const announceChannel = member.guild.channels.find('name', 'announcements');
+const generalChannel = member.guild.channels.find('name', 'general');
+const contestChannel = member.guild.channels.find('name', 'contest');
+const funChannel = member.guild.channels.find('name', 'fun');
+const botsChannel = member.guild.channels.find('name', 'bots');
 
 client.on("ready", function(){
 	console.log("MasterBot69 is ready.")
@@ -18,8 +24,8 @@ client.on("ready", function(){
 });
 
 client.on("guildMemberAdd", function(member){
-	const chnl = member.guild.channels.find('name', 'general');
-	chnl.sendMessage("歡迎 " + member + " 加入 PCSHIC 的 Discord 伺服器!\n請打開 #help 閱讀規則, 並且註明你是誰 (例:我是資訊社的高一/我是xxx)");
+	if(member.bot) generalChannel.send("歡迎工具人 " + member + " 加入伺服器!");
+	else generalChannel.send("歡迎 " + member + " 加入 PCSHIC 的 Discord 伺服器!\n請在這裡註明你是誰(例:我是資訊社的高一/我是xxx), 並到 " + helpChannel + " 閱讀規則.");
 });
 
 client.on("message", function(message){
