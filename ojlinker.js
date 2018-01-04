@@ -1,14 +1,18 @@
 var isNum = function(c){
-	for(i=0; i<10; i++)
-		if(c == i) return true;
+	for(j=0; j<10; j++)
+		if(c == j) return true;
 	return false;
 }
 
 var zjValID = function(id){
+	console.log("zjvalid "+id);
 	if(id.length != 4) return false;
+	console.log("flag val 1");
 	if(id.charAt(0)!='a' && id.charAt(0)!='b' && id.charAt(0)!='c' && id.charAt(0)!='d') return false;
+	console.log("flag val 2");
 	for(i=1; i<4; i++)
 		if(!isNum(id.charAt(i))) return false;
+	console.log("flag val 3");
 	return true;
 }
 
