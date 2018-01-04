@@ -5,7 +5,18 @@ var client = new Discord.Client();
 
 var PREFIX = "~";
 
-client.on("message", message => {
+client.on("ready", function(){
+	console.log("MasterBot69 is ready.")
+
+	client.user.setPresence({
+		game:{
+			name : PREFIX + "help",
+			type : 0
+		}
+	});
+});
+
+client.on("message", function(message){
 	if(message.author.bot) return;
 
 	//....
@@ -34,18 +45,6 @@ client.on("message", message => {
 			break;
 	}
 
-
-});
-
-client.on("ready", () => {
-	console.log("MasterBot69 is ready.")
-
-	bot.user.setPresence({
-		game:{
-			name : PREFIX + "help",
-			type : 0
-		}
-	});
 });
 
 client.login(process.env.BOT_TOKEN);
