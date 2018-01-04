@@ -37,17 +37,16 @@ client.on("message", function(message){
 			);
 			break;
 		case "zj":
-			console.log("entered zj" + args[1]);
-			message.channel.send(Linker.zj(args[1].toLowerCase()));
-			console.log("exit zj" + args[1]);
+			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~zj a001")');
+			else message.channel.send(Linker.zj(args[1].toLowerCase()));
 			break;
 		case "tioj":
-			console.log("entered tioj");
-			message.channel.send(Linker.tioj(args[1].toLowerCase()));
+			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~tioj 1001")');
+			else message.channel.send(Linker.tioj(args[1].toLowerCase()));
 			break;
 		case "neoj":
-			console.log("entered neoj");
-			message.channel.send(Linker.neoj(args[1].toLowerCase()));
+			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~neoj 1")');
+			else message.channel.send(Linker.neoj(args[1].toLowerCase()));
 			break;
 	}
 
