@@ -26,6 +26,7 @@ client.on("message", function(message){
 
 	switch(args[0].toLowerCase()){
 		case "help":
+			console.log("entered help");
 			message.channel.send(
 				":cancer: MasterBot69 :cancer: 的指令都是 `~` 開頭的.\n" + 
 				"`~zj ProblemID` : ZeroJudge 的題目連結 (`ProblemID`用題號取代)\n" + 
