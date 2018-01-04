@@ -17,6 +17,11 @@ client.on("ready", function(){
 	});
 });
 
+client.on("guildMemberAdd", function(member){
+	const channel = member.guild.channels.find('name', 'general');
+	member.send("歡迎" + member + "加入 PCSHIC 的 Discord 伺服器!\n請打開 #help 閱讀規則, 並且說你是誰 (例:我是資訊社的高一/我是xxx)");
+});
+
 client.on("message", function(message){
 	if(message.author.bot) return;
 
@@ -42,10 +47,16 @@ client.on("message", function(message){
     }
 	if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")){
 		message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
-		return
+		return;
 	}else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")){
 		message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
 		return;
+	}
+	if(message.content == "誰是世界上最醜的人" || message.content == "誰是世界上最醜的人?"){
+		var embed = new Discord.RichEmbed()
+			.setTitle(message.author.username)
+			.setImage(message.author.avatarURL);
+		message.channel.send(embed);
 	}
     
 
@@ -77,6 +88,9 @@ client.on("message", function(message){
 		case "neoj":
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~neoj 1")');
 			else message.channel.send(Linker.neoj(args[1].toLowerCase()));
+			break;
+		case "test":
+			message.channel.send("[tts I am Master Bot 69");
 			break;
 	}
 
