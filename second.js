@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const Linker = require('./ojlinker');
 const Event = require('./botevents');
+const Tools = require('./tools');
 
 var client = new Discord.Client();
 
@@ -20,8 +21,8 @@ client.on("ready", function(){
 client.on("guildMemberAdd", function(member){
 	const generalChannel = member.guild.channels.find('name', 'general');
 	const helpChannel = member.guild.channels.find('name', 'help');
-	if(member.user.bot) generalChannel.send("歡迎工具人 " + member + " 加入伺服器!");
-	else generalChannel.send("歡迎 " + member + " 加入 PCSHIC 的 Discord 伺服器!\n請在這裡註明你是誰(例:我是資訊社的高一/我是xxx), 並到 " + helpChannel + " 閱讀規則.");
+	if(member.user.bot) generalChannel.send("**歡迎工具人 **" + member + "** 加入伺服器!**");
+	else generalChannel.send("**歡迎 **" + member + "** 加入 PCSHIC 的 Discord 伺服器!**\n請在這裡註明你是誰(例:我是資訊社的高一/我是xxx), 並到 " + helpChannel + " 閱讀規則.");
 });
 
 client.on("message", function(message){
@@ -91,8 +92,9 @@ client.on("message", function(message){
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~neoj 1")');
 			else message.channel.send(Linker.neoj(args[1].toLowerCase()));
 			break;
-		case "test":
-			message.channel.send("[tts I am Master Bot 69");
+		case "zhtts":
+			if(!args[1]) message.channel.send('請加上要發聲的中文句子.\n(用不加聲調的注音符號或漢語拼音,如 "~zhtts ㄦ ㄕㄣ ㄨㄢ ㄙㄨㄟ" 或 "~zhtts er shen wan sui")');
+			else message.channel.send("[tts " + Tools.zhtts(args));
 			break;
 	}
 
