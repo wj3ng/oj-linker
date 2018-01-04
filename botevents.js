@@ -14,14 +14,14 @@ var srchQry = function(srch){
 }
 
 module.exports = {
-	whatZH = function(str){
+	whatZH: function(str){
         if(str.indexOf("?") > -1)
             str = str.substring(0,str.indexOf("?"));
         if(str.indexOf("啊") > -1)
 			str = str.substring(0,str.indexOf("啊"));
 		return srchQry(str);
 	},
-	whatEN = function(str){
+	whatEN: function(str){
         if(str.indexOf("?") > -1)
             str = str.substring(0,str.indexOf("?"));
         if(str.substr(0,3) == "an ")
