@@ -2,9 +2,9 @@
   "name": "oj-linker",
   "version": "1.0.0",
   "description": "Gives the link of an online judge problem",
-  "main": "second.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node second.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "discord.js": "11.2.1",
