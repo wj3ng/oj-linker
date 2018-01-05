@@ -98,6 +98,8 @@ client.on("message", function(message){
 			else if(!Linker.uvaValID(args[1])) message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');
 			else{ 
 				var prob = Linker.uva(args[1]);
+				message.channel.send(prob);
+				return;
 				var uvaFooter = prob.dacu + " users, AC " + prob.ac + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + ", PE " + prob.pe + ", CE " + prob.ce;
 				if(prob.status == 2) uvaFooter += "\nThis problem uses a special judge."
 				var uvaEmbed = new Discord.RichEmbed()
