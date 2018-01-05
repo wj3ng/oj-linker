@@ -96,11 +96,14 @@ client.on("message", function(message){
 			console.log("ENTERED UVA");
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~uva 00100")');
 			var str = Linker.uva(args[1]);
+			console.log("GOT STR " + str);
 			if(str=='invalid') message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');
 			else if(str=='uva error') message.channel.send('幫QQ出了錯誤...');
 			else if(str=='{}') message.channel.send('此題目不存在');
-			else{
+			else{ 
+				console.log("parsing json");
 				var prob = JSON.parse(str);
+				console.log("json parsed");
 				var uvaEmbed = new Discord.RichEmbed()
 					.addField("UVa " + prob.num + ": " + prob.title,
 						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem="+prob.pid)
