@@ -54,12 +54,14 @@ module.exports = {
 	uva: function(id){
 		console.log("entered uva function with " + id);
 		if(!uvaValID(id)) return 'invalid';
-		var uvaUrl = 'https://uhunt.onlinejudge.org/api/p/num/'+id;
-		console.log(uvaUrl);
 
+		console.log("requesting...");
 		request('https://uhunt.onlinejudge.org/api/p/num/'+id, function(error, response, body){
+			console.log("request successful");
 			return body;
 		});
+
+		return "did not return";
 
 	}
 }
