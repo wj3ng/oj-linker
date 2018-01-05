@@ -1,4 +1,4 @@
-const https = require('https')
+const https = require('https');
 
 var isNum = function(c){
 	for(j=0; j<10; j++)
@@ -49,9 +49,11 @@ module.exports = {
 		return "NEOJ " + id + ": https://neoj.sprout.tw/problem/" + id;
 	},
 	uva: function(id){
+		console.log("entered uva function with " + id);
 		if(!uvaValID(id)) return 'invalid';
 
 		https.get('https://uhunt.onlinejudge.org/api/p/num/'+id, function(resp){
+		console.log("in https function");
 			let data = '';
 			resp.on('data',function(chunk){
 				data += chunk;

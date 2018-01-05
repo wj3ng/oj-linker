@@ -93,6 +93,7 @@ client.on("message", function(message){
 			else message.channel.send(Linker.neoj(args[1].toLowerCase()));
 			break;
 		case "uva":
+			console.log("ENTERED UVA");
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~uva 00100")');
 			var str = Linker.uva(args[1]);
 			if(str=='invalid') message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');
