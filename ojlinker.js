@@ -60,7 +60,7 @@ module.exports = {
 	uva: function(id){
 		console.log("entered uva function with " + id);
 		console.log("requesting...");
-		request('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
+		request('https://uhunt.onlinejudge.org/api/p/num/'+id, function(error, response, body){
 			console.log("request successful");
 			return JSON.parse(body);
 		});
