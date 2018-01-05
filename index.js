@@ -92,6 +92,24 @@ client.on("message", function(message){
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~neoj 1")');
 			else message.channel.send(Linker.neoj(args[1].toLowerCase()));
 			break;
+		case "uva":
+			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~uva 00100")');
+			var str = Linker.uva(args[1]);
+			if(str=='invalid') message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');
+			else if(str=='uva error') message.channel.send('幫QQ出了錯誤...');
+			else if(str=='{}') message.channel.send('此題目不存在');
+			else{
+				var prob = JSON.parse(str);
+				var uvaEmbed = new Discord.RichEmbed()
+					.addField("UVa " + prob.num + ": " + prob.title,
+						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem="+prob.pid)
+					.setFooter("AC " + prob.dacu + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + " , PE " + prob.pe + " , CE " + prob.ce)
+					message.channel.send(uvaEmbed);
+			}
+			break;
+
+
+
 		case "zhtts":
 			if(!args[1]) message.channel.send('請加上要發聲的中文句子.\n(用不加聲調的注音符號或漢語拼音,如 "~zhtts ㄦ ㄕㄣ ㄨㄢ ㄙㄨㄟ" 或 "~zhtts er shen wan sui")');
 			else message.channel.send("[tts " + Tools.zhtts(args));
