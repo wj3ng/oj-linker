@@ -51,12 +51,16 @@ module.exports = {
 		return "NEOJ " + id + ": https://neoj.sprout.tw/problem/" + id;
 	},
 
+	uvaValID: function(id){
+		if(id.length > 5) return false;
+		for(i=0; i<id.length; i++)
+			if(!isNum(id.charAt(i))) return false;
+		return true;
+	},
 	uva: function(id){
 		console.log("entered uva function with " + id);
-		if(!uvaValID(id)) return 'invalid';
-
 		console.log("requesting...");
-		request('https://uhunt.onlinejudge.org/api/p/num/'+id, function(error, response, body){
+		request('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
 			console.log("request successful");
 			return body;
 		});

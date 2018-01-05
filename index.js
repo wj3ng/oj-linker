@@ -95,15 +95,9 @@ client.on("message", function(message){
 		case "uva":
 			console.log("ENTERED UVA");
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~uva 00100")');
-			var str = Linker.uva(args[1]);
-			console.log("GOT STR " + str);
-			if(str=='invalid') message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');
-			else if(str=='uva error') message.channel.send('幫QQ出了錯誤...');
-			else if(str=='{}') message.channel.send('此題目不存在');
+			else if(!uvaValID(args[1])) message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');
 			else{ 
-				console.log("parsing json");
-				var prob = JSON.parse(str);
-				console.log("json parsed");
+				var prob = uva(args[1]);
 				var uvaFooter = prob.dacu + " users accepted.\n" + 
 					"AC " + prob.ac + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + ", PE " + prob.pe + ", CE " + prob.ce;
 				if(prob.status == 2) uvaFooter += "\nThis problem uses a special judge."
