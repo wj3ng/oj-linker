@@ -62,7 +62,7 @@ module.exports = {
 		console.log("requesting...");
 		request('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
 			console.log("request successful");
-			return body;
+			return JSON.parse(body);
 		});
 
 		return "did not return";
