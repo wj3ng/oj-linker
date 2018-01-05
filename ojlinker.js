@@ -1,4 +1,4 @@
-const https = require('https');
+const request = require('request');
 
 var isNum = function(c){
 	for(j=0; j<10; j++)
@@ -40,34 +40,26 @@ module.exports = {
 		if(!zjValID(id)) return '題號格式不正確 (正確範例: "~zj a001")';
 		return "ZeroJudge " + id + ": http://zerojudge.tw/ShowProblem?problemid=" + id;
 	},
+
 	tioj: function(id){
 		if(!tiojValID(id)) return '題號格式不正確 (正確範例: "~tioj 1001")';
 		return "TIOJ " + id + ": http://tioj.ck.tp.edu.tw/problems/" + id;
 	},
+
 	neoj: function(id){
 		if(!neojValID(id)) return '題號格式不正確 (正確範例: "~neoj 1")';
 		return "NEOJ " + id + ": https://neoj.sprout.tw/problem/" + id;
 	},
+
 	uva: function(id){
-		return '{"pid":36,"num":100,"title":"The 3n + 1 problem","dacu":84446,"mrun":0,"mmem":1000000000,"nover":0,"sube":6949,"noj":0,"inq":0,"ce":117311,"rf":0,"re":73907,"ole":330,"tle":62081,"mle":5209,"wa":289172,"pe":5322,"ac":203724,"rtl":3000,"status":1,"rej":0}';
 		console.log("entered uva function with " + id);
 		if(!uvaValID(id)) return 'invalid';
-
-		console.log("entering https function");
 		var uvaUrl = 'https://uhunt.onlinejudge.org/api/p/num/'+id;
 		console.log(uvaUrl);
 
-		https.get(uvaUrl, function(resp){
-		console.log("in https function");
-			let data = '';
-			resp.on('data',function(chunk){
-				data += chunk;
-			});
-			resp.on('end',function(){
-				return data;
-			});
-		}).on('error',function(err){
-			return "uva error";
+		request('https://uhunt.onlinejudge.org/api/p/num/'+id, function(error, response, body){
+			return body;
 		});
+
 	}
 }

@@ -104,10 +104,13 @@ client.on("message", function(message){
 				console.log("parsing json");
 				var prob = JSON.parse(str);
 				console.log("json parsed");
+				var uvaFooter = prob.dacu + " users accepted.\n" + 
+					"AC " + prob.ac + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + ", PE " + prob.pe + ", CE " + prob.ce;
+				if(prob.status == 2) uvaFooter += "\nThis problem uses a special judge."
 				var uvaEmbed = new Discord.RichEmbed()
 					.addField("UVa " + prob.num + ": " + prob.title,
 						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem="+prob.pid)
-					.setFooter("AC " + prob.dacu + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + " , PE " + prob.pe + " , CE " + prob.ce)
+					.setFooter(uvaFooter)
 					message.channel.send(uvaEmbed);
 			}
 			break;
