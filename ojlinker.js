@@ -49,6 +49,7 @@ module.exports = {
 		return "NEOJ " + id + ": https://neoj.sprout.tw/problem/" + id;
 	},
 	uva: function(id){
+		return '{"pid":36,"num":100,"title":"The 3n + 1 problem","dacu":84446,"mrun":0,"mmem":1000000000,"nover":0,"sube":6949,"noj":0,"inq":0,"ce":117311,"rf":0,"re":73907,"ole":330,"tle":62081,"mle":5209,"wa":289172,"pe":5322,"ac":203724,"rtl":3000,"status":1,"rej":0}';
 		console.log("entered uva function with " + id);
 		if(!uvaValID(id)) return 'invalid';
 
@@ -56,8 +57,7 @@ module.exports = {
 		var uvaUrl = 'https://uhunt.onlinejudge.org/api/p/num/'+id;
 		console.log(uvaUrl);
 
-		https.get('https://uhunt.onlinejudge.org/api/p/num/00100', function(resp){
-		//https.get(uvaUrl, function(resp){
+		https.get(uvaUrl, function(resp){
 		console.log("in https function");
 			let data = '';
 			resp.on('data',function(chunk){
