@@ -37,9 +37,11 @@ var totts = function(str){
 module.exports = {
 	zhtts: function(args){
 		var ret;
-		for(i=1; args[i]; i++)
+		for(i=1; args[i]; i++){
 			console.log("zhtts " + i + " " + args[i]);
 			ret += totts(args[i]) + " ";
+			console.log("   " + ret);
+		}
 		return ret;
 	}
 }
