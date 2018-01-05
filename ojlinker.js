@@ -64,6 +64,7 @@ module.exports = {
 			console.log("request successful");
 			return JSON.stringify(body);
 		});
+		console.log("why did it back out?");
 
 		return "did not return";
 
