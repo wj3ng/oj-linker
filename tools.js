@@ -19,6 +19,7 @@ var totts = function(str){
 	if(str == "yang" || str == "ㄧㄤ") return "yong";
 	if(str == "ying" || str == "ㄧㄥ") return "eeng";
 	if(str == "yong" || str == "ㄩㄥ") return "yoang";
+	return "invalid";
 }
 
 module.exports = {
