@@ -52,7 +52,11 @@ module.exports = {
 		console.log("entered uva function with " + id);
 		if(!uvaValID(id)) return 'invalid';
 
-		https.get('https://uhunt.onlinejudge.org/api/p/num/'+id, function(resp){
+		console.log("entering https function");
+		var uvaUrl = 'https://uhunt.onlinejudge.org/api/p/num/'+id;
+		console.log(uvaUrl);
+
+		https.get(uvaUrl, function(resp){
 		console.log("in https function");
 			let data = '';
 			resp.on('data',function(chunk){
