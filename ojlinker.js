@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const https = require('https');
 
 var isNum = function(c){
@@ -36,9 +37,14 @@ var uvaValID = function(id){
 }
 
 module.exports = {
-	zj: function(id){
-		if(!zjValID(id)) return '題號格式不正確 (正確範例: "~zj a001")';
-		return "ZeroJudge " + id + ": http://zerojudge.tw/ShowProblem?problemid=" + id;
+	zj: function(id, channel){
+		if(!id) channel.send('請加上題號 (正確範例: "~zj a001")');
+		else if(!zjValID(id)) channel.send('題號格式不正確 (正確範例: "~zj a001")');
+		else{
+			var zjEmbed = new Discord.RichEmbed()
+				.addField("ZeroJudge " + id, "http://zerojudge.tw/ShowProblem?problemid=" + id)
+				channel.send(zjEmbed);
+		}
 	},
 
 	tioj: function(id){

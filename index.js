@@ -81,8 +81,9 @@ client.on("message", function(message){
 			);
 			break;
 		case "zj":
-			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~zj a001")');
-			else message.channel.send(Linker.zj(args[1].toLowerCase()));
+			//if(!args[1]) message.channel.send('請加上題號 (正確範例: "~zj a001")');
+			//else message.channel.send(Linker.zj(args[1].toLowerCase()));
+			Linker.zj(args[1],message.channel);
 			break;
 		case "tioj":
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~tioj 1001")');
