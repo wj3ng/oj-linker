@@ -66,12 +66,10 @@ module.exports = {
 			console.log("request successful: " + body.title);
 			return body;
 			//return JSON.stringify(body);
-		}).then(function(){
-			console.log('out of rp');
-			return "did not return";
 		});
 
-		sleep.msleep(50);
+		sleep.msleep(100);
+		console.log("returning undefined");
 		
 	}
 }
