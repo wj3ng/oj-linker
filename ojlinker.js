@@ -1,4 +1,4 @@
-const request = require('request');
+const rp = require('rp-promise');
 
 var isNum = function(c){
 	for(j=0; j<10; j++)
@@ -61,14 +61,14 @@ module.exports = {
 		console.log("entered uva function with " + id);
 		console.log("requesting...");
 
-		request('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
+		rp('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
 			console.log("request successful");
 			return JSON.stringify(body);
-		});
-
-		console.log("why did it back out?");
-
-		return "did not return";
+		})
+			.then(function(){
+				console.log("why did it back out?");
+				return "did not return";
+			});
 
 	}
 }
