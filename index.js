@@ -75,7 +75,8 @@ client.on("message", function(message){
 				":cancer: MasterBot69 :cancer: 的指令都是 `~` 開頭的.\n" + 
 				"`~zj ProblemID` : ZeroJudge 的題目連結 (`ProblemID`用題號取代)\n" + 
 				"`~tioj ProblemID` : TIOJ 的題目連結 (`ProblemID`用題號取代)\n" +
-				"`~neoj ProblemID` : NEOJ 的題目連結 (`ProblemID`用題號取代)\n\n" + 
+				"`~neoj ProblemID` : NEOJ 的題目連結 (`ProblemID`用題號取代)\n" + 
+				"`~uva ProblemID` : UVa 的題目連結 (`ProblemID`用題號取代)\n\n" + 
 				"我是:cancer:餌神:cancer:的傑作!\n" + 
 				"我的原始碼: https://github.com/wj3ng/oj-linker"
 			);

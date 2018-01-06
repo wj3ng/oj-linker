@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const https = require('https');
 const request = require('request');
 
 var isNum = function(c){
@@ -79,11 +78,10 @@ module.exports = {
 				var uvaEmbed = new Discord.RichEmbed()
 					.addField("UVa " + body.num + ": " + body.title,
 						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=" + body.pid +
-						"\n" + body.dacu + "users accepted.")
+						"\n" + body.dacu + " users accepted.")
 					.setFooter("AC " + body.ac + ", WA " + body.wa + ", TLE " + body.tle + ", MLE " + body.mle + ", RE " + body.re + ", PE " + body.pe + ", CE " + body.ce)
-					.setColor(0xD8174B)
+					.setColor(0xA50E57)
 					channel.send(uvaEmbed);
-					//set color
 			});
 		}
 	
