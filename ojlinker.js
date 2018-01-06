@@ -62,10 +62,17 @@ module.exports = {
 		console.log("requesting...");
 
 		var request =  https.get('https://uhunt.onlinejudge.org/api/p/num/'+id, function(response){
-			console.dir(response);
-			return response;
+			var body = "";
+			response.on("data", function(chunk){
+				body += chunk;
+			});
+			response.on("end",function(){
+				console.log("GOT JSON: " + body);
+				return JSON.parse(body);
+			})
 		});
 
+		console.log("returning");
 		return request;
 		//return JSON.parse('{"pid":"no","num":-1,"title":"fail","dacu":-1,"ce":-1,"re":-1,"ole":-1,"tle":-1,"mle":5209,"wa":-1,"pe":-1,"ac":-1,"status":1}')
 		
