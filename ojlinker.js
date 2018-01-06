@@ -1,4 +1,4 @@
-const rp = require('rp-promise');
+const rp = require('request-promise');
 
 var isNum = function(c){
 	for(j=0; j<10; j++)
