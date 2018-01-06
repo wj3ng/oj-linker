@@ -90,21 +90,7 @@ client.on("message", function(message){
 			Linker.neoj(args[1],message.channel);
 			break;
 		case "uva":
-			Linker.uva(args[1].message.channel);
-
-			console.log("ENTERED UVA");
-			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~uva 00100")');
-			else if(!Linker.uvaValID(args[1])) message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');
-			else{ 
-				var prob = JSON.parse(Linker.uva(args[1]));
-				var uvaFooter = prob.dacu + " users, AC " + prob.ac + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + ", PE " + prob.pe + ", CE " + prob.ce;
-				if(prob.status == 2) uvaFooter += "\nThis problem uses a special judge."
-				var uvaEmbed = new Discord.RichEmbed()
-					.addField("UVa " + prob.num + ": " + prob.title,
-						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem="+prob.pid)
-					.setFooter(uvaFooter)
-					message.channel.send(uvaEmbed);
-			}
+			Linker.uva(args[1],message.channel);
 			break;
 
 
