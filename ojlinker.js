@@ -63,12 +63,12 @@ module.exports = {
 
 		rp('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
 			console.log("request successful");
+			console.log(body.title);
 			return JSON.stringify(body);
-		})
-			.then(function(){
-				console.log("why did it back out?");
-				return "did not return";
-			});
+		});
+		
+		console.log('out of rp');
+		return "did not return";
 
 	}
 }
