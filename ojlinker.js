@@ -75,13 +75,16 @@ module.exports = {
 		else if(!uvaValID(id)) channel.send('題號格式不正確 (正確範例: "~uva 00100")');
 		else{
 			request("https://uhunt.onlinejudge.org/api/p/num/"+id, {json: true}, function(err, resp, body){
-				var uvaEmbed = new Discord.RichEmbed()
-					.addField("UVa " + body.num + ": " + body.title,
-						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=" + body.pid +
-						"\n" + body.dacu + " users accepted.")
-					.setFooter("AC " + body.ac + ", WA " + body.wa + ", TLE " + body.tle + ", MLE " + body.mle + ", RE " + body.re + ", PE " + body.pe + ", CE " + body.ce)
-					.setColor(0xA50E57)
-					channel.send(uvaEmbed);
+				if(body.num == undefined) channel.send("此題目不存在!");
+				else{
+					var uvaEmbed = new Discord.RichEmbed()
+						.addField("UVa " + body.num + ": " + body.title,
+							"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=" + body.pid +
+							"\n" + body.dacu + " users accepted.")
+						.setFooter("AC " + body.ac + ", WA " + body.wa + ", TLE " + body.tle + ", MLE " + body.mle + ", RE " + body.re + ", PE " + body.pe + ", CE " + body.ce)
+						.setColor(0xA50E57)
+						channel.send(uvaEmbed);
+				}
 			});
 		}
 	
