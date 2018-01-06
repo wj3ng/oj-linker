@@ -1,4 +1,5 @@
 const rp = require('request-promise');
+const sleep = require('sleep');
 
 var isNum = function(c){
 	for(j=0; j<10; j++)
@@ -69,6 +70,8 @@ module.exports = {
 			console.log('out of rp');
 			return "did not return";
 		});
+
+		sleep.msleep(50);
 		
 	}
 }
