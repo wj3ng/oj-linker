@@ -1,4 +1,4 @@
-const rp = require('request-promise');
+const request = require('request');
 const sleep = require('sleep');
 
 var isNum = function(c){
@@ -62,7 +62,7 @@ module.exports = {
 		console.log("entered uva function with " + id);
 		console.log("requesting...");
 
-		rp('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
+		request('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
 			console.log("request successful: " + body.title);
 			return body;
 			//return JSON.stringify(body);
