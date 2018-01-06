@@ -1,5 +1,4 @@
-const request = require('request');
-const sleep = require('sleep');
+const https = require('https');
 
 var isNum = function(c){
 	for(j=0; j<10; j++)
@@ -62,18 +61,13 @@ module.exports = {
 		console.log("entered uva function with " + id);
 		console.log("requesting...");
 
-		request('https://uhunt.onlinejudge.org/api/p/num/'+id, {json:true}, function(error, response, body){
-			console.log("request successful: " + body.title);
-			return body;
-			//return JSON.stringify(body);
+		var request =  https.get('https://uhunt.onlinejudge.org/api/p/num/'+id, function(response){
+			console.dir(response);
+			return response;
 		});
 
-		console.log("going to sleep");
-		sleep.msleep(2000);
-		console.log("STAY WOKE");
-		console.log("returning undefined");
-
-		return JSON.parse('{"pid":"no","num":-1,"title":"fail","dacu":-1,"ce":-1,"re":-1,"ole":-1,"tle":-1,"mle":5209,"wa":-1,"pe":-1,"ac":-1,"status":1}')
+		return request;
+		//return JSON.parse('{"pid":"no","num":-1,"title":"fail","dacu":-1,"ce":-1,"re":-1,"ole":-1,"tle":-1,"mle":5209,"wa":-1,"pe":-1,"ac":-1,"status":1}')
 		
 	}
 }
