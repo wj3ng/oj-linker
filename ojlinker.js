@@ -72,6 +72,8 @@ module.exports = {
 		sleep.msleep(2000);
 		console.log("STAY WOKE");
 		console.log("returning undefined");
+
+		return JSON.parse('{"pid":"no","num":-1,"title":"fail","dacu":-1,"ce":-1,"re":-1,"ole":-1,"tle":-1,"mle":5209,"wa":-1,"pe":-1,"ac":-1,"status":1}')
 		
 	}
 }
