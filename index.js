@@ -90,6 +90,8 @@ client.on("message", function(message){
 			Linker.neoj(args[1],message.channel);
 			break;
 		case "uva":
+			Linker.uva(args[1].message.channel);
+
 			console.log("ENTERED UVA");
 			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~uva 00100")');
 			else if(!Linker.uvaValID(args[1])) message.channel.send('題號格式不正確 (正確範例: "~uva 00100")');

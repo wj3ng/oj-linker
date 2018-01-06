@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const https = require('https');
+const request = require('request');
 
 var isNum = function(c){
 	for(j=0; j<10; j++)
@@ -43,7 +44,7 @@ module.exports = {
 		else{
 			var zjEmbed = new Discord.RichEmbed()
 				.addField("ZeroJudge " + id, "http://zerojudge.tw/ShowProblem?problemid=" + id)
-				.setColor(0x5D6C82)
+				.setColor(0x7CC6FF)
 				channel.send(zjEmbed);
 		}
 	},
@@ -54,46 +55,36 @@ module.exports = {
 		else{
 			var tiojEmbed = new Discord.RichEmbed()
 				.addField("TIOJ " + id, "http://tioj.ck.tp.edu.tw/problems/" + id)
-				.setColor(0x2F4154)
+				.setColor(0x277EE8)
 				channel.send(tiojEmbed);
 		}
 	},
 
 	neoj: function(id, channel){
 		if(!id) channel.send('請加上題號 (正確範例: "~neoj 1")');
-		else if(!neojValID(id)) return '題號格式不正確 (正確範例: "~neoj 1")';
+		else if(!neojValID(id)) channel.send('題號格式不正確 (正確範例: "~neoj 1")');
 		else{
 			var neojEmbed = new Discord.RichEmbed()
-				.addField("NEOJ" + id, "https://neoj.sprout.tw/problem/" + id)
-				.setColor(0x66E00F)
+				.addField("NEOJ " + id, "https://neoj.sprout.tw/problem/" + id)
+				.setColor(0x6BC109)
 				channel.send(neojEmbed);
 		}
 	},
 
-	uvaValID: function(id){
-		if(id.length > 5) return false;
-		for(i=0; i<id.length; i++)
-			if(!isNum(id.charAt(i))) return false;
-		return true;
-	},
-	uva: function(id){
-		console.log("entered uva function with " + id);
-		console.log("requesting...");
-
-		var request =  https.get('https://uhunt.onlinejudge.org/api/p/num/'+id, function(response){
-			var body = "";
-			response.on("data", function(chunk){
-				body += chunk;
+	uva: function(id, channel){
+		if(!id) channel.send('請加上題號 (正確範例: "~uva 00100")');
+		else if(!uvaValID(id)) channel.send('題號格式不正確 (正確範例: "~uva 00100")');
+		else{
+			request("https://uhunt.onlinejudge.org/api/p/num/"+id, {json: true}, function(err, resp, body){
+				var uvaEmbed = new Discord.RichEmbed()
+					.addField("UVa " + body.num + ": " + body.title,
+						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=" + body.pid +
+						"\n" + body.dacu + "users accepted.")
+					.setFooter("AC " + prob.ac + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + ", PE " + prob.pe + ", CE " + prob.ce)
+					channel.send(uvaEmbed);
+					//set color
 			});
-			response.on("end",function(){
-				console.log("GOT JSON: " + body);
-				return JSON.parse(body);
-			})
-		});
-
-		console.log("returning");
-		return request;
-		//return JSON.parse('{"pid":"no","num":-1,"title":"fail","dacu":-1,"ce":-1,"re":-1,"ole":-1,"tle":-1,"mle":5209,"wa":-1,"pe":-1,"ac":-1,"status":1}')
-		
+		}
+	
 	}
 }
