@@ -93,8 +93,6 @@ client.on("message", function(message){
 		case "uva":
 			Linker.uva(args[1],message.channel);
 			break;
-		case "at":
-			Linker.at(args[1],args[2],args[3],message.channel);
 
 
 		case "zhtts":
