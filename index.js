@@ -81,17 +81,13 @@ client.on("message", function(message){
 			);
 			break;
 		case "zj":
-			//if(!args[1]) message.channel.send('請加上題號 (正確範例: "~zj a001")');
-			//else message.channel.send(Linker.zj(args[1].toLowerCase()));
 			Linker.zj(args[1],message.channel);
 			break;
 		case "tioj":
-			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~tioj 1001")');
-			else message.channel.send(Linker.tioj(args[1].toLowerCase()));
+			Linker.tioj(args[1],message.channel);
 			break;
 		case "neoj":
-			if(!args[1]) message.channel.send('請加上題號 (正確範例: "~neoj 1")');
-			else message.channel.send(Linker.neoj(args[1].toLowerCase()));
+			Linker.neoj(args[1],message.channel);
 			break;
 		case "uva":
 			console.log("ENTERED UVA");

@@ -43,18 +43,31 @@ module.exports = {
 		else{
 			var zjEmbed = new Discord.RichEmbed()
 				.addField("ZeroJudge " + id, "http://zerojudge.tw/ShowProblem?problemid=" + id)
+				.setColor(0x5D6C82)
 				channel.send(zjEmbed);
 		}
 	},
 
-	tioj: function(id){
-		if(!tiojValID(id)) return '題號格式不正確 (正確範例: "~tioj 1001")';
-		return "TIOJ " + id + ": http://tioj.ck.tp.edu.tw/problems/" + id;
+	tioj: function(id, channel){
+		if(!id) channel.send('請加上題號 (正確範例: "~tioj 1001")');
+		else if(!tiojValID(id)) channel.send('題號格式不正確 (正確範例: "~tioj 1001")');
+		else{
+			var tiojEmbed = new Discord.RichEmbed()
+				.addField("TIOJ " + id, "http://tioj.ck.tp.edu.tw/problems/" + id)
+				.setColor(0x2F4154)
+				channel.send(tiojEmbed);
+		}
 	},
 
-	neoj: function(id){
-		if(!neojValID(id)) return '題號格式不正確 (正確範例: "~neoj 1")';
-		return "NEOJ " + id + ": https://neoj.sprout.tw/problem/" + id;
+	neoj: function(id, channel){
+		if(!id) channel.send('請加上題號 (正確範例: "~neoj 1")');
+		else if(!neojValID(id)) return '題號格式不正確 (正確範例: "~neoj 1")';
+		else{
+			var neojEmbed = new Discord.RichEmbed()
+				.addField("NEOJ" + id, "https://neoj.sprout.tw/problem/" + id)
+				.setColor(0x66E00F)
+				channel.send(neojEmbed);
+		}
 	},
 
 	uvaValID: function(id){
