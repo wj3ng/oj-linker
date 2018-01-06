@@ -87,6 +87,27 @@ module.exports = {
 				}
 			});
 		}
-	
+	},
+	at: function(kind,id1,id2,channel){
+		if(!kind)channel.send('請輸入正確的指令');
+		else if(kind.toLowerCase()=="ls"){
+			console.log("entered list");
+			channel.send("提供 abc arc agc\n");
+		}
+		else{
+			if(!id1||!id2)channel.send('請輸入正確的指令');
+			else{
+				request("https://beta.atcoder.jp/contests/"+kind+id1"/tasks/"+kind+id1+"_"+id2, {json: true}, function(err,rsep,body){
+					if(err){
+						channel.send('請輸入正確的指令');
+					}else{
+						var uvaEmbed = new Discord.RichEmbed()
+						.addField(body)
+						.setColor(0xA50E57)
+						channel.send(uvaEmbed);
+					}
+				});
+			}
+		}
 	}
 }
