@@ -80,7 +80,8 @@ module.exports = {
 					.addField("UVa " + body.num + ": " + body.title,
 						"https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=" + body.pid +
 						"\n" + body.dacu + "users accepted.")
-					.setFooter("AC " + prob.ac + ", WA " + prob.wa + ", TLE " + prob.tle + ", MLE " + prob.mle + ", RE " + prob.re + ", PE " + prob.pe + ", CE " + prob.ce)
+					.setFooter("AC " + body.ac + ", WA " + body.wa + ", TLE " + body.tle + ", MLE " + body.mle + ", RE " + body.re + ", PE " + body.pe + ", CE " + body.ce)
+					.setColor(0xD8174B)
 					channel.send(uvaEmbed);
 					//set color
 			});
