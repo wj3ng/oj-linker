@@ -11,7 +11,7 @@ const godPic = [
 	],
 	[
 		"http://cdn.media.worldjournal.com/wp-content/uploads/2017/05/2017050511003014_05805.jpg",
-		"http://www.locuspublishing.com/BOKIMG/pic_L/6111NC008.jpg",
+		"https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/25790889_10154824604406895_3902495827041108875_o.png?oh=496d388db7e156a6d5e250008e558595&oe=5AB23C54",
 		"https://img.technews.tw/wp-content/uploads/2017/12/01111707/465461322-624x353.jpg"
 	],
 	[
