@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const godName = ["Gennady Korotkevich (tourist)", "何達睿"];
+const godName = ["Gennady Korotkevich (tourist)","何達睿","陳伯恩"];
 const godPic = [
 	[
 		"https://pbs.twimg.com/profile_images/800720654001721345/xgCmwjWe.jpg",
@@ -68,6 +68,7 @@ module.exports = {
 	god: function(channel){
 		var curGod = Math.floor(Math.random() * godName.length);
 		var curGodPic = Math.floor(Math.random() * godPic[curGod].length);
+		console.log("RANDOM PIC: " + curGod + " " + curGodPic);
 		var godEmbed = new Discord.RichEmbed()
 			.setTitle("請對大電神致敬")
 			.setImage(godPic[curGod][curGodPic])
