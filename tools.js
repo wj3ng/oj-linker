@@ -67,7 +67,7 @@ module.exports = {
 	},
 	god: function(channel){
 		var curGod = Math.floor(Math.random() * godName.length);
-		var curGodPic = Math.floor(Math.random() * godPic[curGod].length());
+		var curGodPic = Math.floor(Math.random() * godPic[curGod].length);
 		var godEmbed = new Discord.RichEmbed()
 			.addField("請對大電神致敬","")
 			.setImage(godPic[curGod][curGodPic])
