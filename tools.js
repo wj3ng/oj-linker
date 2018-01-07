@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const godName = ["Gennady Korotkevich (tourist)","何達睿","陳伯恩"];
+const godName = ["Gennady Korotkevich (tourist)","何達睿","陳伯恩","Petr Mitrichev (Petr)"];
 const godPic = [
 	[
 		"https://pbs.twimg.com/profile_images/800720654001721345/xgCmwjWe.jpg",
@@ -19,6 +19,14 @@ const godPic = [
 		"https://attach.setn.com/newsimages/2014/07/20/113531-XXL.jpg",
 		"https://attach.setn.com/newsimages/2014/07/20/113496-XXL.jpg",
 		"http://img.chinatimes.com/newsphoto/2014-07-20/656/b03a00_p_01_02.jpg"
+	],
+	[
+		"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Petr_Mitrichev.png/220px-Petr_Mitrichev.png",
+		"https://pbs.twimg.com/profile_images/600762122994257920/dKf8uroa_400x400.jpg",
+		"https://computacioncuantica.files.wordpress.com/2010/02/a.jpg",
+		"https://3.bp.blogspot.com/-46m3pDOpo2I/VxO4dWOaq_I/AAAAAAAAzo8/Ueehp8eK0OQHLPxkFBnCmOa5tzByEIUqACKgB/s1600/IMAG1084.jpg",
+		"http://codeforces.com/predownloaded/dd/de/ddde6a0816eae534e339c91357813fd2fb63ea57.jpg",
+		"http://tco16.topcoder.com/wp-content/uploads/2016/07/Petr.jpg"
 	]
 ];
 
@@ -70,7 +78,7 @@ module.exports = {
 		var curGodPic = Math.floor(Math.random() * godPic[curGod].length);
 		console.log("RANDOM PIC: " + curGod + " " + curGodPic);
 		var godEmbed = new Discord.RichEmbed()
-			.setTitle("請對大電神致敬")
+			.setTitle("~請對大電神致敬~")
 			.setImage(godPic[curGod][curGodPic])
 			.setFooter(godName[curGod])
 			channel.send(godEmbed);
