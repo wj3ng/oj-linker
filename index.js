@@ -99,6 +99,9 @@ client.on("message", function(message){
 			if(!args[1]) message.channel.send('請加上要發聲的中文句子.\n(用不加聲調的注音符號或漢語拼音,如 "~zhtts ㄦ ㄕㄣ ㄨㄢ ㄙㄨㄟ" 或 "~zhtts er shen wan sui")');
 			else message.channel.send("[tts " + Tools.zhtts(args));
 			break;
+		case "god":
+			Tools.god(message.channel);
+			break;
 	}
 
 });
