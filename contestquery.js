@@ -6,7 +6,6 @@ var starting = [];
 
 module.exports = {
 	cfQuery: function(channel){
-		console.log("codeforces query sent");
 		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err, resp, body){
 			for(i=0; body.result[i].phase=="BEFORE"; i++){
 				if(body.result[i].relativeTimeSeconds>-1800 && announced.indexOf(body.result[i].id) == -1){
@@ -16,6 +15,7 @@ module.exports = {
 						.addField(body.result[i].name,"Duration: " + body.result[i].durationSeconds/60 +
 							" 分鍾\nhttp://codeforces.com/contest/" + body.result[i].id)
 						.setThumbnail("https://www.programmableweb.com/sites/default/files/styles/facebook_scale_width_200/public/Codeforces%20API.jpg?itok=zOiesF2d")
+						.setColor("#1D6EF2")
 						channel.send(cfEmbed);
 						//set color
 				}
@@ -26,6 +26,7 @@ module.exports = {
 						.addField(body.result[i].name,"Duration: " + body.result[i].durationSeconds/60 +
 							" 分鍾\nhttp://codeforces.com/contest/" + body.result[i].id)
 						.setThumbnail("https://www.programmableweb.com/sites/default/files/styles/facebook_scale_width_200/public/Codeforces%20API.jpg?itok=zOiesF2d")
+						.setColor("#1D6EF2")
 						channel.send(cfEmbed);
 						//set color
 				}
