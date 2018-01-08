@@ -1,0 +1,10 @@
+help / about
+
+zerojudge [id] / zj [id]
+tioj [id]
+neoj [id]
+uva [id]
+
+cf problem / cf prob [id] / cf p [id] / cf [id]
+cf user [id] / cf u [id]
+cf contest [id] / cf c [id]

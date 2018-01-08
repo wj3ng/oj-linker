@@ -54,7 +54,8 @@ client.on("message", function(message){
 	if(message.content.includes("(╯°□°）╯︵ ┻━┻") || message.content.includes("(╯°□°）╯︵┻━┻")){
 		message.channel.send("┬─┬ ノ( ゜-゜ノ)   請尊重桌子");
 		return;
-	}else if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")){
+	}
+	if(message.content.includes("(╯°□°）╯︵") && message.content.includes("┻━┻")){
 		message.channel.send("丟那麼遠,撿不回來了啦>.<!!");
 		return;
 	}
@@ -63,6 +64,7 @@ client.on("message", function(message){
 			.setTitle(message.author.username)
 			.setImage(message.author.avatarURL);
 		message.channel.send(embed);
+		return;
 	}
     
 
@@ -73,6 +75,7 @@ client.on("message", function(message){
 
 	switch(args[0].toLowerCase()){
 		case "help":
+		case "about":
 			console.log("entered help");
 			message.channel.send(
 				":cancer: MasterBot69 :cancer: 的指令都是 `~` 開頭的.\n" + 
@@ -84,6 +87,7 @@ client.on("message", function(message){
 				"我的原始碼: https://github.com/wj3ng/oj-linker"
 			);
 			break;
+		case "zerojudge":
 		case "zj":
 			Linker.zj(args[1],message.channel);
 			break;

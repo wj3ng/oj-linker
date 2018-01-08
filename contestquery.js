@@ -8,9 +8,9 @@ module.exports = {
 	cfQuery: function(channel){
 		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err, resp, body){
 			for(i=0; body.result[i].phase=="BEFORE"; i++){
-				if(body.result[i].relativeTimeSeconds>-1800 && announced.indexOf(body.result[i].id) == -1){
+				if(body.result[i].relativeTimeSeconds>-1800 && body.result[i].relativeTimeSeconds<-1750 && announced.indexOf(body.result[i].id) == -1){
 					announced.push(body.result[i].id);
-					channel.send("有 CodeForces 競賽將在30分鐘後開始!");
+					channel.send("**有 CodeForces 競賽將在30分鐘後開始!**");
 					var cfEmbed = new Discord.RichEmbed()
 						.addField(body.result[i].name,"Duration: " + body.result[i].durationSeconds/60 +
 							" 分鍾\nhttp://codeforces.com/contest/" + body.result[i].id)
@@ -19,9 +19,9 @@ module.exports = {
 						channel.send(cfEmbed);
 						//set color
 				}
-				if(body.result[i].relativeTimeSeconds>-300 && starting.indexOf(body.result[i].id) == -1){
+				if(body.result[i].relativeTimeSeconds>-300 && body.result[i].relativeTimeSeconds<-250 && starting.indexOf(body.result[i].id) == -1){
 					starting.push(body.result[i].id);
-					channel.send("有 CodeForces 競賽將在5分鐘後開始!");
+					channel.send("**有 CodeForces 競賽將在5分鐘後開始!**");
 					var cfEmbed = new Discord.RichEmbed()
 						.addField(body.result[i].name,"Duration: " + body.result[i].durationSeconds/60 +
 							" 分鍾\nhttp://codeforces.com/contest/" + body.result[i].id)
