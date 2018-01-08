@@ -6,8 +6,8 @@ var announced = [];
 module.exports = {
 	cfQuery: function(channel){
 		console.log("CF QUERY");
-		console.log(body[i].name);
 		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err, resp, body){
+			console.log(body[i].name);
 			for(i=0; body[i].phase=="BEFORE"; i++){
 				if(body[i].relativeTimeSeconds<1800 && !announced.contains(body[i].id)){
 					announced.push(body[i].id);
