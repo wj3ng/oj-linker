@@ -18,7 +18,7 @@ client.on("ready", function(){
 		}
 	});
 
-	Contest.cfQuery(client.channels.get("396218529613086720")); //contests channel
+	setInterval(Contest.cfQuery, 5000, client.channels.get("396218529613086720")); //contests channel
 });
 
 client.on("guildMemberAdd", function(member){

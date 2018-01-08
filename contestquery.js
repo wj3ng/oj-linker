@@ -4,7 +4,7 @@ const request = require('request');
 var announced = [];
 
 module.exports = {
-	cfQuery: setInterval(function(channel){
+	cfQuery: function(channel){
 		console.log("CF QUERY");
 		console.log(body[i].name);
 		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err,body,resp){
@@ -20,6 +20,5 @@ module.exports = {
 				}
 			}
 		});
-	}, 5000) //5 secs for testing
-	//}, 300000) //5 minutes
+	}
 }
