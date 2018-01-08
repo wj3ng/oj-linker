@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const Linker = require('./ojlinker');
 const Event = require('./botevents');
 const Tools = require('./tools');
+const Contest = require('./contestquery');
 
 var client = new Discord.Client();
 
@@ -16,6 +17,8 @@ client.on("ready", function(){
 			type : 0
 		}
 	});
+
+	Contest.cfQuery(client.channels.get("396218529613086720")); //contests channel
 });
 
 client.on("guildMemberAdd", function(member){
