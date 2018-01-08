@@ -14,7 +14,7 @@ module.exports = {
 					announced.push(body.result[i].id);
 					channel.send("30分鐘後有 CodeForces 競賽!");
 					var cfEmbed = new Discord.RichEmbed()
-						.setField(body.result[i].name,"Duration: " + body.result[i].durationSeconds/60 +
+						.addField(body.result[i].name,"Duration: " + body.result[i].durationSeconds/60 +
 							" 分鍾\nhttp://codeforces.com/contest/" + body.result[i].id);
 						channel.send(cfEmbed);
 						//set color
