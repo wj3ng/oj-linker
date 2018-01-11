@@ -100,6 +100,13 @@ client.on("message", function(message){
 		case "uva":
 			Linker.uva(args[1],message.channel);
 			break;
+		case "ioi":
+		case "ioicamp":
+			Linker.ioi(args[1],message.channel);
+			break;
+		case "icpc":
+			Linker.icpc(args[1],message.channel);
+			break;
 
 
 		case "zhtts":

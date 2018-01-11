@@ -36,6 +36,20 @@ var uvaValID = function(id){
 	return true;
 }
 
+var ioiValID = function(id){
+	if(id.length > 3) return false;
+	for(i=0; i<id.length; i++)
+		if(!isNum(id.charAt(i))) return false;
+	return true;
+}
+
+var icpcValID = function(id){
+	if(id.length > 3) return false;
+	for(i=0; i<id.length; i++)
+		if(!isNum(id.charAt(i))) return false;
+	return true;
+}
+
 module.exports = {
 	zj: function(id, channel){
 		if(!id) channel.send('請加上題號 (正確範例: "~zj a001")');
@@ -86,6 +100,28 @@ module.exports = {
 						channel.send(uvaEmbed);
 				}
 			});
+		}
+	},
+
+	ioi: function(id, channel){
+		if(!id) channel.send('請加上題號 (正確範例: "~ioi 1")');
+		else if(!ioiValID(id)) channel.send('題號格式不正確 (正確範例: "~ioi 1")');
+		else{
+			var neojEmbed = new Discord.RichEmbed()
+				.addField("IOIcamp " + id, "https://judge.ioicamp.org/problems/" + id)
+				.setColor(0x6BC109)
+				channel.send(neojEmbed);
+		}
+	},
+
+	icpc: function(id, channel){
+		if(!id) channel.send('請加上題號 (正確範例: "~icpc 1")');
+		else if(!icpcValID(id)) channel.send('題號格式不正確 (正確範例: "~icpc 1")');
+		else{
+			var icpcEmbed = new Discord.RichEmbed()
+				.addField("競程日記 " + id, "https://oj.icpc.tw/problem/" + id)
+				.setColor(0x6BC3FF)
+				channel.send(icpcEmbed);
 		}
 	}
 }
