@@ -29,7 +29,7 @@ client.on("guildMemberAdd", function(member){
 });
 
 client.on("guildMemberUpdate", function(oldMemb, newMemb){
-	const generalChannel = oldmember.guild.channels.find('name', 'general');
+	const generalChannel = oldMemb.guild.channels.find('name', 'general');
 	if(oldMemb.nickname != newMemb.nickname){
 		generalChannel.send(":warning: " + oldMemb.nickname + " **把昵稱改成了** " + newMemb.nickname + ".");
 		return;
