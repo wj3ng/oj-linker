@@ -12,7 +12,7 @@ var zhTime = function(sec){
 	var ret = "";
 	sec /= 60;
 	if(sec >= 60) ret += (sec/60), ret += "小時";
-	if(sec%61 != 0) ret += (sec%60), ret += "分鐘";
+	if(sec%60 != 0) ret += (sec%60), ret += "分鐘";
 	return ret;
 }
 
