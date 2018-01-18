@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const request = require('request');
+const Tools = require('./tools');
 
 const CFthumb = "https://www.programmableweb.com/sites/default/files/styles/facebook_scale_width_200/public/Codeforces%20API.jpg?itok=zOiesF2d";
 
@@ -8,16 +9,8 @@ var starting = [];
 var begun = [];
 var delayed = [];
 
-var zhTime = function(sec){
-	var ret = "";
-	sec /= 60;
-	if(sec >= 60) ret += (sec/60), ret += "小時";
-	if(sec%60 != 0) ret += (sec%60), ret += "分鐘";
-	return ret;
-}
-
 module.exports = {
-	cfQuery: function(channel){
+	query: function(channel){
 		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err, resp, body){
 			for(i=0; body.result[i].relativeTimeSeconds<body.result[i].durationSeconds+50; i++){
 
@@ -32,7 +25,7 @@ module.exports = {
 					if(curCon.durationSeconds-curCon.relativeTimeSeconds<60)
 						channel.setTopic('CodeForces 競賽 "' + curCon.name + '" 即將結束!');
 					else
-						channel.setTopic('正在進行 CodeForces 競賽 "' + curCon.name + '", 距離比賽結束還有 ' + zhTime(curCon.durationSeconds-curCon.relativeTimeSeconds));
+						channel.setTopic('正在進行 CodeForces 競賽 "' + curCon.name + '", 距離比賽結束還有 ' + Tools.zhTime(curCon.durationSeconds-curCon.relativeTimeSeconds));
 
 					if(curCon.relativeTimeSeconds<50 && begun.indexOf(curCon.id) == -1){
 						begun.push(curCon.id);
@@ -46,13 +39,13 @@ module.exports = {
 					}
 				}else if(curCon.relativeTimeSeconds>=-18000){
 					
-					channel.setTopic('CodeForces 競賽 "' + curCon.name + '" 將在 ' + zhTime(-1*curCon.relativeTimeSeconds) + "開始");
+					channel.setTopic('CodeForces 競賽 "' + curCon.name + '" 將在 ' + Tools.zhTime(-1*curCon.relativeTimeSeconds) + "開始");
 
 					if(curCon.relativeTimeSeconds<-17950 && announced.indexOf(curCon.id) == -1){
 						announced.push(curCon.id);
 						channel.send(":bell:**5小時後有 CodeForces 競賽!**");
 						var cfEmbed = new Discord.RichEmbed()
-							.addField(curCon[i].name,"Duration: " + zhTime(curCon.durationSeconds) +
+							.addField(curCon[i].name,"Duration: " + Tools.zhTime(curCon.durationSeconds) +
 								"\nhttp://codeforces.com/contest/" + curCon.id)
 							.setThumbnail(CFthumb)
 							.setColor("#1D6EF2")
@@ -61,7 +54,7 @@ module.exports = {
 						starting.push(curCon.id);
 						channel.send(":bell:**10分鐘後有 CodeForces 競賽!**");
 						var cfEmbed = new Discord.RichEmbed()
-							.addField(curCon[i].name,"Duration: " + zhTime(curCon.durationSeconds) +
+							.addField(curCon[i].name,"Duration: " + Tools.zhTime(curCon.durationSeconds) +
 								"\nhttp://codeforces.com/contest/" + curCon.id)
 							.setThumbnail(CFthumb)
 							.setColor("#1D6EF2")
@@ -72,11 +65,14 @@ module.exports = {
 
 				if(starting.indexOf(curCon.id) != -1 && curCon.relativeTimeSeconds<-300 && delayed.indexOf(curCon.id) == -1){
 					delayed.push(curCon.id);
-					channel.send(':warning:**CodeForces 競賽 "'+ curCon.name + '" 被延遲, ' + zhTime(-1*(curCon.relativeTimeSeconds+30)) + '後開始.**');
+					channel.send(':warning:**CodeForces 競賽 "'+ curCon.name + '" 被延遲, ' + Tools.zhTime(-1*(curCon.relativeTimeSeconds+30)) + '後開始.**');
 					starting.splice(starting.indexOf(curCon.id),1);
 					if(begun.indexOf(curCon.id>-1)) begun.splice(begun.indexOf(curCon.id),1);
 				}
 			}
 		});
+	},
+	contest: function(channel){
+		
 	}
 }

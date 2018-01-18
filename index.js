@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const Linker = require('./ojlinker');
 const Event = require('./botevents');
-const Tools = require('./tools');
-const Contest = require('./contestquery');
+const Misc = require('./misc');
+const Cf = require('./codeforces');
 
 var client = new Discord.Client();
 
@@ -18,7 +18,7 @@ client.on("ready", function(){
 		}
 	});
 
-	setInterval(Contest.cfQuery, 10000, client.channels.get("396218529613086720")); //contests channel, 10 second interval
+	setInterval(Cf.query, 10000, client.channels.get("396218529613086720")); //contests channel, 10 second interval
 	client.channels.get("397287084609503252").setTopic("testing 1234569");
 });
 
@@ -86,6 +86,9 @@ client.on("message", function(message){
 	var args = message.content.substring(PREFIX.length).split(" ");
 
 	switch(args[0].toLowerCase()){
+		case "test":
+			message.channel.send("this is a test \t\ttesting\nhello\t\tworld");
+			break;
 		case "help":
 		case "about":
 			console.log("entered help");
@@ -119,14 +122,17 @@ client.on("message", function(message){
 		case "icpc":
 			Linker.icpc(args[1],message.channel);
 			break;
+		case "cf":
+		case "codeforces":
+			break;
 
 
 		case "zhtts":
 			if(!args[1]) message.channel.send('請加上要發聲的中文句子.\n(用不加聲調的注音符號或漢語拼音,如 "~zhtts ㄦ ㄕㄣ ㄨㄢ ㄙㄨㄟ" 或 "~zhtts er shen wan sui")');
-			else message.channel.send("[tts " + Tools.zhtts(args));
+			else message.channel.send("[tts " + Misc.zhtts(args));
 			break;
 		case "god":
-			Tools.god(message.channel);
+			Misc.god(message.channel);
 			break;
 	}
 
