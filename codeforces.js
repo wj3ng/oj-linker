@@ -75,9 +75,9 @@ module.exports = {
 	contest: function(channel){
 
 		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err, resp, body){
-			var mes = "以下是最近的 CodeForces 競賽:\n ```\n名稱\t\t\t時間\n";
+			var mes = "以下是最近的 CodeForces 競賽:\n ```\ntest\ttest\n123456789012345678901234567890\n一二三四五六七八九十一二三四五六七八九十";
 			for(i=0; body.result[i].relativeTimeSeconds<129600; i++)
-				mes += body.result[i].name + "\t\t\t" + body.relativeTimeSeconds + "\n";
+				mes += body.result[i].name + "\t\t\t" + body.result[i].relativeTimeSeconds + "\n";
 			mes += "```";
 			channel.send(mes);
 		});
