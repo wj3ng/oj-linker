@@ -3,8 +3,8 @@ module.exports = {
 		console.log(sec + "seconds");
 		var ret = "";
 		sec /= 60;
-		if(sec >= 1440) ret += (sec/1440), ret += "天", sec %= 1440;
-		if(sec >= 60) ret += (sec/60), ret += "小時", sec %= 60;
+		if(sec >= 1440) ret += Math.floor(sec/1440), ret += "天", sec %= 1440;
+		if(sec >= 60) ret += Math.floor(sec/60), ret += "小時", sec %= 60;
 		if(sec) ret += (sec), ret += "分鐘";
 		console.log("returning " + ret);
 		return ret;
