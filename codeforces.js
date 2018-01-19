@@ -45,7 +45,7 @@ module.exports = {
 						announced.push(curCon.id);
 						channel.send(":bell:**5小時後有 CodeForces 競賽!**");
 						var cfEmbed = new Discord.RichEmbed()
-							.addField(curCon[i].name,"Duration: " + Tools.zhTime(curCon.durationSeconds) +
+							.addField(curCon.name,"Duration: " + Tools.zhTime(curCon.durationSeconds) +
 								"\nhttp://codeforces.com/contest/" + curCon.id)
 							.setThumbnail(CFthumb)
 							.setColor("#1D6EF2")
