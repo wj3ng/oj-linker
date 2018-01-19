@@ -76,9 +76,10 @@ module.exports = {
 
 		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err, resp, body){
 			var mes = "**以下是最近的 CodeForces 競賽:**\n ```\n名稱\t\t\t\t\t\t\t\t\t狀態\t\t時間\n";
+			mes += "123456789B123456789C123456789D123456789E123456789F123456789G123456789H123456789I123456789J123456789K\n"
 			for(i=0; body.result[i].relativeTimeSeconds<129600; i++){
 				mes += body.result[i].name;
-				for(var j=72; j>=body.result[i].relativeTimeSeconds.length; j-=8) mes +="\t";
+				for(var j=72; j>body.result[i].relativeTimeSeconds.length-8; j-=8) mes += "\t";
 				mes += body.result[i].phase;
 				for(var j=16; j>=body.result[i].phase.length; j-=8) mes += "\t";
 				mes += body.result[i].relativeTimeSeconds + "\n";
