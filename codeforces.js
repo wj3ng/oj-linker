@@ -73,6 +73,13 @@ module.exports = {
 		});
 	},
 	contest: function(channel){
+
+		var mes = "以下是最近的 CodeForces 競賽:\n ```\n名稱\t\t\t時間\n";
+
+		request("http://codeforces.com/api/contest.list?gym=false", {json: true}, function(err, resp, body){
+			for(i=0; body.result[i].relativeTimeSeconds<129600; i++)
+				mes += body.result[i].name + "\t\t\t" + body.relativeTimeSeconds + "\n";
+		});
 		
 	}
 }
