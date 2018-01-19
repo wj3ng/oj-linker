@@ -124,6 +124,7 @@ client.on("message", function(message){
 			break;
 		case "cf":
 		case "codeforces":
+			Cf.contest(message.channel);
 			break;
 
 
