@@ -39,7 +39,7 @@ module.exports = {
 					}
 				}else if(curCon.relativeTimeSeconds>=-18000){
 					
-					channel.setTopic('CodeForces 競賽 "' + curCon.name + '" 將在 ' + Tools.zhTime(-1*curCon.relativeTimeSeconds) + "開始");
+					channel.setTopic('CodeForces 競賽 "' + curCon.name + '" 將在 ' + Tools.zhTime(-1*curCon.relativeTimeSeconds) + " 後開始");
 
 					if(curCon.relativeTimeSeconds<-17950 && announced.indexOf(curCon.id) == -1){
 						announced.push(curCon.id);
