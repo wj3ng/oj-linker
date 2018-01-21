@@ -18,8 +18,8 @@ client.on("ready", function(){
 		}
 	});
 
-	setInterval(Cf.query, 10000, client.channels.get("396218529613086720")); //contests channel, 10 second interval
-	client.channels.get("397287084609503252").send("New MasterBot69 build deployed!");
+// ommitted for server problems RIP
+//	setInterval(Cf.query, 10000, client.channels.get("396218529613086720")); //contests channel, 10 second interval
 });
 
 client.on("guildMemberAdd", function(member){
