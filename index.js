@@ -19,7 +19,7 @@ client.on("ready", function(){
 	});
 
 // ommitted for server problems RIP
-//	setInterval(Cf.query, 10000, client.channels.get("396218529613086720")); //contests channel, 10 second interval
+	setInterval(Cf.query, 10000, client.channels.get("396218529613086720")); //contests channel, 10 second interval
 });
 
 client.on("guildMemberAdd", function(member){
