@@ -51,6 +51,16 @@ client.on("message", function(message){
 
 	//===============
 
+	if(message.content.includes("對不起")){
+		message.channel.send("沒關係");
+		return;
+	}
+
+	if(message.content == "電神"){
+		message.channel.send('"我不是電神 我是廢物"\n                          _－波路電石_');
+		return;
+	}
+
 	if(message.content.includes("什麼是") && message.content.indexOf("什麼是")+3 < message.content.length){
 		var ret = Event.whatZH(message.content.substring(message.content.indexOf("什麼是")+3));
 		if(ret) message.channel.send("廢物,不會自己查喔...\n" + "https://www.google.com/search?q=" + ret);
