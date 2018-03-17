@@ -57,7 +57,7 @@ client.on("message", function(message){
 	}
 
 	if(message.content == "電神"){
-		message.channel.send('"我不是電神 我是廢物"\n　　　　　　　　　_－波路電石_');
+		message.channel.send('"我不是電神 我是廢物"\n　　　　　　　　　　_－波路電石_');
 		return;
 	}
 
