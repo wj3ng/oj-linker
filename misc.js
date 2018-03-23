@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const godName = ["Gennady Korotkevich (tourist)","何達睿","陳伯恩","Petr Mitrichev (Petr)"];
+const godName = ["Gennady Korotkevich (tourist)","何達睿","陳伯恩","Petr Mitrichev (Petr)","蔡旻電 (波路電石)"];
 const godPic = [
 	[
 		"https://pbs.twimg.com/profile_images/800720654001721345/xgCmwjWe.jpg",
@@ -27,6 +27,9 @@ const godPic = [
 		"https://3.bp.blogspot.com/-46m3pDOpo2I/VxO4dWOaq_I/AAAAAAAAzo8/Ueehp8eK0OQHLPxkFBnCmOa5tzByEIUqACKgB/s1600/IMAG1084.jpg",
 		"http://codeforces.com/predownloaded/dd/de/ddde6a0816eae534e339c91357813fd2fb63ea57.jpg",
 		"http://tco16.topcoder.com/wp-content/uploads/2016/07/Petr.jpg"
+	],
+	[
+		"./pics/baluteshih1.png"
 	]
 ];
 
