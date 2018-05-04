@@ -29,7 +29,7 @@ const godPic = [
 		"http://tco16.topcoder.com/wp-content/uploads/2016/07/Petr.jpg"
 	],
 	[
-		"https://i.imgur.com/WAQXQVr.png"
+		"https://i.imgur.com/Gbx4BX3.jpg"
 	]
 ];
 
