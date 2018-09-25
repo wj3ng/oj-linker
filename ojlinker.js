@@ -56,7 +56,7 @@ module.exports = {
 		else if(!zjValID(id)) channel.send('題號格式不正確 (正確範例: "~zj a001")');
 		else{
 			var zjEmbed = new Discord.RichEmbed()
-				.addField("ZeroJudge " + id, "http://zerojudge.tw/ShowProblem?problemid=" + id)
+				.addField("ZeroJudge " + id, "https://zerojudge.tw/ShowProblem?problemid=" + id)
 				.setColor(0x7CC6FF)
 				channel.send(zjEmbed);
 		}
